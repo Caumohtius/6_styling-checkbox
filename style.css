@@ -84,29 +84,6 @@ body {
     transform: translate(0, -20%);
 }
 
-/* Disabled / Disabled-Checked */
-
-.check__input:disabled + .check__box {
-    color: #8d646593;
-}
-
-.check__input:disabled.check__input:checked + .check__box {
-    color: #4a959a7c;
-}
-
-.check__input:disabled + .check__box::before {
-    border-color: #8d646593;
-    background-color: rgba(216, 214, 214, .5);
-}
-
-.check__input:disabled.check__input:checked + .check__box:before {
-    background-color: #4a959a7c;
-}
-
-.check__input:disabled.check__input:checked + .check__box::after {
-    color: rgba(0, 0, 0, 0.377);
-}
-
 /* Checked */
 
 .check__input:checked + .check__box {
@@ -123,25 +100,43 @@ body {
     transform: none;
 }
 
-.check__input:not(:disabled).check__input:checked + .check__box:hover.check__box::before,
-.check__input:not(:disabled).check__input:checked.check__input:focus + .check__box::before {
+.check__input:not(:disabled):checked + .check__box:hover::before,
+.check__input:not(:disabled):checked.check__input:focus + .check__box::before {
     background-color: #3b767a;
     border-color: #2F2A35
 }
 
 /* Not-Checked */
 
-.check__input:not(:disabled).check__input:not(:checked) {
-    background-color: rgb(255, 255, 255);
-    border-color: #8D6465;
-}
-
-.check__input:not(:disabled).check__input:not(:checked) + .check__box:hover {
+.check__input:not(:disabled):not(:checked) + .check__box:hover {
     color: #2F2A35;
 }
 
-.check__input:not(:disabled).check__input:not(:checked) + .check__box:hover.check__box::before,
-.check__input:not(:disabled).check__input:not(:checked).check__input:focus + .check__box::before {
+.check__input:not(:disabled):not(:checked) + .check__box:hover::before,
+.check__input:not(:disabled):not(:checked).check__input:focus + .check__box::before {
     background-color: #d4b3b1;
     border-color: #2F2A35;
+}
+
+/* Disabled / Disabled-Checked */
+
+.check__input:disabled + .check__box {
+    color: #8d646593;
+}
+
+.check__input:disabled:checked + .check__box {
+    color: #4a959a7c;
+}
+
+.check__input:disabled + .check__box::before {
+    border-color: #8d646593;
+    background-color: rgba(216, 214, 214, .5);
+}
+
+.check__input:disabled:checked + .check__box:before {
+    background-color: #4a959a7c;
+}
+
+.check__input:disabled:checked + .check__box::after {
+    color: rgba(0, 0, 0, .35);
 }
